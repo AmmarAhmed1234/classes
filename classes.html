@@ -3,10 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
 <body>
+<div ng-app="myApp" ng-controller="myPractice">
+    <h1>Price: <input type="text" ng-model="rupiya"> <span>{{ rupiya  | currency  }}</span> <span>{{ rupiya  | currency : 'Rs' }}</span></h1>
+    <!--<h1> {{ price | currency : 'RS' + ' ' }}</h1>-->
+
+<p>Date : <input type="date" ng-model="dates"></p>
+<p>{{ dates | date : 'dd-MM-yyyy' }}</p>
+<p>{{ dates | date : 'fullDate' }}</p>
+<p>Search : <input type="text" ng-model="search"> </p>
+
+<ul>
+   <li ng-repeat="x in names | filter : search ">
+    {{ x }}
+  </li>
+</ul>
+<p>Enter Number : <input type="text" ng-model="digit"> <span>{{digit | number : 2}}</span></p>
+</div>
 
 
+
+<script>
+    var app = angular.module('myApp', []);
+app.controller('myPractice', function($scope) {
+    // $scope.price = 89;
+    $scope.names = [
+        'ammar',
+        'ahmed',
+        'javascript',
+        'bmw',
+        'mercedies benz',
+        'pocher',
+        'Joe',
+        'Birgit',
+        'Tokyo',
+        'Japan',
+        'Washington BC',
+        'Spain',
+        'Bangladesh',
+        'China',
+        'Turkey',
+        'Moscow',
+        'dodge',
+        'Carl',
+        'Mary',
+        'Gustav',
+        'Hege',
+        'Kai',
+        'nissan'
+    ]
+});
+
+</script>
 <Script src="classes.js"></Script>
 </body>
 </html>
